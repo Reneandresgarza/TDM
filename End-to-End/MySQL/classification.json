@@ -1,0 +1,425 @@
+{
+  "tables": [
+    {
+      "schema": "sakila",
+      "name": "actor",
+      "columns": [
+        {
+          "name": "actor_id"
+        },
+        {
+          "name": "first_name",
+          "type": "GivenNames",
+          "maxLength": 45
+        },
+        {
+          "name": "last_name",
+          "type": "FamilyNames",
+          "maxLength": 45
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "address",
+      "columns": [
+        {
+          "name": "address_id"
+        },
+        {
+          "name": "address",
+          "type": "StreetAddresses",
+          "maxLength": 50
+        },
+        {
+          "name": "address2",
+          "type": "StreetAddresses",
+          "maxLength": 50
+        },
+        {
+          "name": "district",
+          "maxLength": 20
+        },
+        {
+          "name": "city_id"
+        },
+        {
+          "name": "postal_code",
+          "type": "PostCodes",
+          "maxLength": 10
+        },
+        {
+          "name": "phone",
+          "type": "PhoneNumbers",
+          "maxLength": 20
+        },
+        {
+          "name": "location"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "category",
+      "columns": [
+        {
+          "name": "category_id"
+        },
+        {
+          "name": "name",
+          "maxLength": 25
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "city",
+      "columns": [
+        {
+          "name": "city_id"
+        },
+        {
+          "name": "city",
+          "type": "Cities",
+          "maxLength": 50
+        },
+        {
+          "name": "country_id"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "country",
+      "columns": [
+        {
+          "name": "country_id"
+        },
+        {
+          "name": "country",
+          "type": "Countries",
+          "maxLength": 50
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "customer",
+      "columns": [
+        {
+          "name": "customer_id"
+        },
+        {
+          "name": "store_id"
+        },
+        {
+          "name": "first_name",
+          "type": "GivenNames",
+          "maxLength": 45
+        },
+        {
+          "name": "last_name",
+          "type": "FamilyNames",
+          "maxLength": 45
+        },
+        {
+          "name": "email",
+          "type": "EmailAddresses",
+          "maxLength": 50
+        },
+        {
+          "name": "address_id"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "create_date"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "film",
+      "columns": [
+        {
+          "name": "film_id"
+        },
+        {
+          "name": "title",
+          "maxLength": 128
+        },
+        {
+          "name": "description",
+          "maxLength": 65535
+        },
+        {
+          "name": "release_year"
+        },
+        {
+          "name": "language_id"
+        },
+        {
+          "name": "original_language_id"
+        },
+        {
+          "name": "rental_duration"
+        },
+        {
+          "name": "rental_rate"
+        },
+        {
+          "name": "length"
+        },
+        {
+          "name": "replacement_cost"
+        },
+        {
+          "name": "rating"
+        },
+        {
+          "name": "special_features"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "film_actor",
+      "columns": [
+        {
+          "name": "actor_id"
+        },
+        {
+          "name": "film_id"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "film_category",
+      "columns": [
+        {
+          "name": "film_id"
+        },
+        {
+          "name": "category_id"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "film_text",
+      "columns": [
+        {
+          "name": "film_id"
+        },
+        {
+          "name": "title",
+          "maxLength": 255
+        },
+        {
+          "name": "description",
+          "maxLength": 65535
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "inventory",
+      "columns": [
+        {
+          "name": "inventory_id"
+        },
+        {
+          "name": "film_id"
+        },
+        {
+          "name": "store_id"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "language",
+      "columns": [
+        {
+          "name": "language_id"
+        },
+        {
+          "name": "name",
+          "maxLength": 20
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "payment",
+      "columns": [
+        {
+          "name": "payment_id"
+        },
+        {
+          "name": "customer_id"
+        },
+        {
+          "name": "staff_id"
+        },
+        {
+          "name": "rental_id"
+        },
+        {
+          "name": "amount"
+        },
+        {
+          "name": "payment_date"
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "rental",
+      "columns": [
+        {
+          "name": "rental_id"
+        },
+        {
+          "name": "rental_date"
+        },
+        {
+          "name": "inventory_id"
+        },
+        {
+          "name": "customer_id"
+        },
+        {
+          "name": "return_date"
+        },
+        {
+          "name": "staff_id"
+        },
+        {
+          "name": "last_update"
+        }
+      ],
+      "constraints": [
+        {
+          "type": "Unique",
+          "columns": [
+            "customer_id",
+            "inventory_id",
+            "rental_date"
+          ]
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "staff",
+      "columns": [
+        {
+          "name": "staff_id"
+        },
+        {
+          "name": "first_name",
+          "type": "GivenNames",
+          "maxLength": 45
+        },
+        {
+          "name": "last_name",
+          "type": "FamilyNames",
+          "maxLength": 45
+        },
+        {
+          "name": "address_id"
+        },
+        {
+          "name": "picture"
+        },
+        {
+          "name": "email",
+          "type": "EmailAddresses",
+          "maxLength": 50
+        },
+        {
+          "name": "store_id"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "username",
+          "maxLength": 16
+        },
+        {
+          "name": "password",
+          "maxLength": 40
+        },
+        {
+          "name": "last_update"
+        }
+      ]
+    },
+    {
+      "schema": "sakila",
+      "name": "store",
+      "columns": [
+        {
+          "name": "store_id"
+        },
+        {
+          "name": "manager_staff_id"
+        },
+        {
+          "name": "address_id"
+        },
+        {
+          "name": "last_update"
+        }
+      ],
+      "constraints": [
+        {
+          "type": "Unique",
+          "columns": [
+            "manager_staff_id"
+          ]
+        }
+      ]
+    }
+  ]
+}
