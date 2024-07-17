@@ -1,0 +1,1 @@
+rgclone create data-image --file="C:\Github\TDM\RGClone\Create-Image\NewWorldDB\NewWorldDB.yaml" 

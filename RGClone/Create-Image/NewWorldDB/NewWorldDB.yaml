@@ -1,0 +1,51 @@
+sourceType: Backup
+name: NewWorldDB_Rene_Keep_71724
+engine: mssql
+version: 2022
+backups:
+  - path: mssql/NewWorldDB/NewWorld.bak
+preScript: |
+
+  create login [Redgate]
+  with password = N'Redg@te1'
+    , default_database = [master]
+    , default_language = [us_english]
+    , check_expiration = off
+    , check_policy = off;
+  go
+
+  alter server role [sysadmin] add member [Redgate];
+  go
+  
+postScript: |
+
+  DBCC CLONEDATABASE(NewWorldDB, NewWorldDB_Subset)WITH VERIFY_CLONEDB
+  ALTER DATABASE [NewWorldDB_Subset] SET READ_WRITE WITH ROLLBACK IMMEDIATE
+  go
+
+  DBCC CLONEDATABASE(NewWorldDB, NewWorldDB_Data_Generator)WITH VERIFY_CLONEDB
+  ALTER DATABASE [NewWorldDB_Data_Generator] SET READ_WRITE WITH ROLLBACK IMMEDIATE
+  go
+
+  DBCC CLONEDATABASE(NewWorldDB, NewWorldDB_Masker)WITH VERIFY_CLONEDB
+  ALTER DATABASE [NewWorldDB_Masker] SET READ_WRITE WITH ROLLBACK IMMEDIATE
+  go
+
+  DBCC CLONEDATABASE(NewWorldDB, NewWorldDB_Dev)WITH VERIFY_CLONEDB
+  ALTER DATABASE [NewWorldDB_Dev] SET READ_WRITE WITH ROLLBACK IMMEDIATE
+  go
+
+  use NewWorldDB_Subset
+  alter table employees drop column [HireDate]
+  alter table employees drop column [address]
+  alter table employees drop column [city]
+  alter table employees drop column [region]
+  go
+
+
+  use NewWorldDB_Subset
+  alter table employees add   [HireDate] [datetime] NULL
+  alter table employees add   [Address] [nvarchar](60) NULL
+  alter table employees add   [City] [nvarchar](15) NULL
+  alter table employees add   [Region] [nvarchar](15) NULL
+  go

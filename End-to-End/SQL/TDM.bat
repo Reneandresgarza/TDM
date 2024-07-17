@@ -4,7 +4,7 @@ rgclone create data-container --image 1077 --name "NewWorldDB" --lifetime 1h30m
 pause
 
 ::Create Data Proxy::                                              
-start "" "C:\Demos\SQL TDM\Create Proxy.bat"
+start "" "C:\Github\TDM\End-to-End\SQL\Create Proxy.bat"
 
 pause
 
